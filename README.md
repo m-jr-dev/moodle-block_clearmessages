@@ -1,0 +1,2 @@
+# moodle-block_clearmessages
+block_clearmessages
