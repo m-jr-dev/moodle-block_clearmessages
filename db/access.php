@@ -11,6 +11,14 @@ $capabilities = array(
         )
     ),
 
+    'block/clearmessages:myaddinstance' => array(
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'manager' => CAP_ALLOW
+        )
+    ),
+
     'block/clearmessages:clear' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
