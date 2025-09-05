@@ -1,21 +1,11 @@
 <?php
-defined('MOODLE_INTERNAL') || die();
 
-	/**
-	 * Plugin de Bloco para permitir que usuários apaguem suas mensagens até uma data selecionada.
-	 *
-	 * @package    block_clearmessages
-	 * @copyright  2025 Marcelo M. Almeida Jr.
-	 * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-	 */
-
-require_once($CFG->libdir . '/formslib.php');
-
-	/**
-	 * Classe do Bloco clearmessages.
-	 *
-	 * @package    block_clearmessages
-	 */
+/**
+ * Classe do Bloco clearmessages.
+ * Plugin de Bloco para permitir que usuários apaguem suas mensagens até uma data selecionada.
+ *
+ * @package    block_clearmessages
+ */
 class block_clearmessages extends block_base {
 	
 
@@ -28,11 +18,11 @@ class block_clearmessages extends block_base {
         $this->title = get_string('pluginname', 'block_clearmessages');
     }
 
-	/**
-	 * Retorna o conteúdo do bloco, incluindo o formulário e processa o envio para apagar mensagens.
-	 *
-	 * @return stdClass|null
-	 */
+    /**
+     * Retorna o conteúdo do bloco, incluindo o formulário e processa o envio para apagar mensagens.
+     *
+     * @return stdClass|null
+     */
     public function get_content() {
         global $OUTPUT, $USER, $DB;
 
@@ -45,16 +35,16 @@ class block_clearmessages extends block_base {
         }
 
         $this->content = new stdClass();
+        $this->content->text = '';
 
-        $mform = new clear_messages_form();
+        $mform = new \block_clearmessages\form\clear_messages();
         if ($data = $mform->get_data()) {
 			
-			// Obtém timestamp do início do dia selecionado.
-			$startdate = $data->startdate;
+            // Obtém timestamp do início do dia selecionado.
+            $startdate = $data->startdate;
 
-			// Cria timestamp para o final do dia selecionado (23:59:59)
-			$time_limit = strtotime('23:59:59', $startdate);
-
+            // Cria timestamp para o final do dia selecionado (23:59:59)
+            $time_limit = strtotime('23:59:59', $startdate);
 
             /// Busca mensagens enviadas pelo usuário até a data limite.
             $sentmessages = $DB->get_records_select('messages',
@@ -103,7 +93,7 @@ class block_clearmessages extends block_base {
                     }
                 }
 
-				// Exibe notificação de sucesso após apagar mensagens.
+                // Exibe notificação de sucesso após apagar mensagens.
                 $this->content->text .= $OUTPUT->notification(
                     get_string('messages_cleared', 'block_clearmessages'),
                     'notifysuccess'
@@ -111,40 +101,21 @@ class block_clearmessages extends block_base {
             }
         }
 
-		// Renderiza o formulário na saída do bloco.
+        // Renderiza o formulário na saída do bloco.
         $this->content->text .= $mform->render();
         return $this->content;
     }
 
-	/**
-	 * Define os formatos onde o bloco pode ser usado.
-	 *
-	 * @return array
-	 */
-	   public function applicable_formats() {
-		$systemcontext = context_system::instance();
-		if (has_capability('moodle/site:config', $systemcontext)) {
-			return ['all' => true];
-		}
-		return [];
-	}
-}
-
-	/**
-	 * Formulário para seleção da data limite para apagar mensagens.
-	 *
-	 * @package    block_clearmessages
-	 */
-class clear_messages_form extends moodleform {
-	
     /**
-     * Define os elementos do formulário.
+     * Define os formatos onde o bloco pode ser usado.
      *
-     * @return void
+     * @return array
      */
-    public function definition() {
-        $mform = $this->_form;
-        $mform->addElement('date_selector', 'startdate', get_string('startdate', 'block_clearmessages'));
-        $mform->addElement('submit', 'submitbutton', get_string('clearbutton', 'block_clearmessages'));
+    public function applicable_formats() {
+        $systemcontext = context_system::instance();
+        if (has_capability('moodle/site:config', $systemcontext)) {
+            return ['all' => true];
+        }
+        return [];
     }
 }
