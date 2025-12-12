@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_clearmessages';
-$plugin->version   = 2025070200;
+$plugin->version   = 2025090500;
 $plugin->requires  = 2022041900;
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->release   = '1.0 (Marcelo M. A. Jr.)';
