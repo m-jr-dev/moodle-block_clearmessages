@@ -14,25 +14,29 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace block_clearmessages\privacy;
+namespace block_clearmessages\form;
 
-use core_privacy\local\metadata\null_provider;
+defined('MOODLE_INTERNAL') || die();
+
+require_once($CFG->libdir . '/formslib.php');
 
 /**
- * Privacy provider for block_clearmessages.
+ * Form for selecting the cutoff date to delete messages.
  *
  * @package    block_clearmessages
  * @copyright  2026 Marcelo M. Almeida Jr.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class provider implements null_provider {
+class clear_messages extends \moodleform {
 
     /**
-     * Returns the reason why this plugin stores no personal data.
+     * Defines the form elements.
      *
-     * @return string
+     * @return void
      */
-    public static function get_reason(): string {
-        return 'privacy:metadata';
+    public function definition() {
+        $mform = $this->_form;
+        $mform->addElement('date_selector', 'startdate', get_string('startdate', 'block_clearmessages'));
+        $mform->addElement('submit', 'submitbutton', get_string('clearbutton', 'block_clearmessages'));
     }
 }

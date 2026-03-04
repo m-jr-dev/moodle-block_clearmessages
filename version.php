@@ -18,14 +18,14 @@
  * Version details for block_clearmessages plugin.
  *
  * @package    block_clearmessages
- * @copyright  2025 Marcelo M. Almeida Jr.
+ * @copyright  2026 Marcelo M. Almeida Jr.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
- 
+
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_clearmessages';
-$plugin->version   = 2025070200;
-$plugin->requires  = 2022041900;
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '1.0 (Marcelo M. A. Jr.)';
+$plugin->version = 2026030401;
+$plugin->requires = 2024042200;
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = '1.0.1';
