@@ -22,9 +22,12 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['clearbutton']        = 'Clear';
-$string['messages_cleared']   = 'Messages have been cleared.';
-$string['no_messages_found']  = 'No messages found before that date.';
-$string['pluginname']         = 'Clear Messages';
-$string['privacy:metadata']   = 'The Clear Messages block does not store personal data.';
-$string['startdate']          = 'Clear messages before';
+$string['clearbutton'] = 'Clear';
+$string['clearmessages:addinstance'] = 'Add a new Clear Messages block';
+$string['clearmessages:clear'] = 'Clear user messages';
+$string['clearmessages:myaddinstance'] = 'Add a new Clear Messages block to Dashboard';
+$string['messages_cleared'] = 'Messages have been cleared.';
+$string['no_messages_found'] = 'No messages found before that date.';
+$string['pluginname'] = 'Clear Messages';
+$string['privacy:metadata'] = 'The Clear Messages block does not store personal data.';
+$string['startdate'] = 'Clear messages before';

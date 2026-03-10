@@ -22,9 +22,12 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['clearbutton']        = 'Limpar';
-$string['messages_cleared']   = 'As mensagens foram apagadas.';
-$string['no_messages_found']  = 'Nenhuma mensagem encontrada antes dessa data.';
-$string['pluginname']         = 'Limpar Mensagens';
-$string['privacy:metadata']   = 'O bloco Limpar Mensagens não armazena dados pessoais.';
-$string['startdate']          = 'Limpar mensagens antes de';
+$string['clearbutton'] = 'Limpar';
+$string['clearmessages:addinstance'] = 'Adicionar um novo bloco Limpar Mensagens';
+$string['clearmessages:clear'] = 'Limpar mensagens do usuário';
+$string['clearmessages:myaddinstance'] = 'Adicionar um novo bloco Limpar Mensagens ao painel';
+$string['messages_cleared'] = 'As mensagens foram apagadas.';
+$string['no_messages_found'] = 'Nenhuma mensagem encontrada antes dessa data.';
+$string['pluginname'] = 'Limpar Mensagens';
+$string['privacy:metadata'] = 'O bloco Limpar Mensagens não armazena dados pessoais.';
+$string['startdate'] = 'Limpar mensagens antes de';
